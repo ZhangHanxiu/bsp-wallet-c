@@ -14,5 +14,5 @@ public interface BaseMapper<S,T> {
 
     List<T> getAllByFilter(Map<String,Object> map);
 
-//    int delete(int id);
+    int delete(String id);
 }
