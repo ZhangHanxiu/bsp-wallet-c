@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.wallet.wallet.mapper.TransationMapper">
+    <select id="getList" resultType="Transaction">
+        select transaction_id, buyer_id, transaction_money, transaction_type, account_name, status,transaction_time from wtr
+        where transaction_type != 3
+    </select>
+
+    <select id="getAuditList" resultType="Transaction">
+        select transaction_id, buyer_id, transaction_money, transaction_type, account_name, status,transaction_time from wtr
+        where status = 2
+    </select>
+
+    <select id="getUserList" parameterType="Integer" resultType="Transaction">
+        select transaction_id, transaction_money, transaction_type, status, transaction_time from wtr
+        where buyer_id = #{buyer_id}
+    </select>
+
+    <update id="audit" parameterType="Integer">
+        update wtr set status = #{result_code} where transaction_id = #{transaction_id}
+    </update>
+
+    <insert id="insert" parameterType="Transaction">
+        insert into wtr (buyer_id, transaction_money, transaction_type, account_name)
+        values (#{buyer_id},#{transaction_money},#{transaction_type},#{account_name})
+    </insert>
+
+
+</mapper>

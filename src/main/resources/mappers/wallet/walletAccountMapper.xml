@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.wallet.wallet.mapper.WalletAccountMapper">
+
+    <insert id="insert" parameterType="WalletAccount">
+        insert into waa (account_name,email,password,account_type)
+        values
+        (#{account_name},#{email},#{password},#{account_type})
+    </insert>
+
+    <select id="getByName" parameterType="java.lang.String" resultType="WalletAccount">
+        select * from waa where account_name = #{accountname}
+    </select>
+
+    <update id="updateFund" parameterType="Map">
+        update waf  set available_money = available_money+#{amount} where buyer_id = #{buyer_id}
+    </update>
+
+    <select id="fund" parameterType="Integer" resultType="Float">
+        select available_money from waf where buyer_id = #{buyer_id}
+    </select>
+
+</mapper>
