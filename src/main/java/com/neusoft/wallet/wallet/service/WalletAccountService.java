@@ -33,4 +33,6 @@ public interface WalletAccountService {
     int deposit(int buyer_id, float amount);
 
     float fund(int buyer_id);
+
+    int getIdByName(String name);
 }

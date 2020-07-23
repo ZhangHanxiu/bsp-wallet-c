@@ -11,4 +11,6 @@ public interface WalletAccountMapper extends BaseMapper<Integer, WalletAccount> 
     int updateFund(int buyer_id, float amount);
 
     float fund(int buyer_id);
+
+    int getIdByName(String name);
 }

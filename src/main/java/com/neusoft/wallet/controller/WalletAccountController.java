@@ -77,6 +77,7 @@ public class WalletAccountController  extends BaseController {
         try{
             subject.login(uptoken);
             WalletAccount waa = (WalletAccount) subject.getPrincipal();
+            waa.setAvailable_money(fund(waa.getBuyer_id()).data);
             LoginVo result = new LoginVo();
             result.code = 200;
             result.data = waa;
@@ -124,9 +125,14 @@ public class WalletAccountController  extends BaseController {
         return result;
     }
 
-    @PostMapping("/token")
+    //@PostMapping("/token")
     public int getIdFromToken(@RequestParam String token) {
         int id = TokenUtil.getId(token);
         return id;
+    }
+
+    @GetMapping("/getIdByName")
+    public int getIdByName(@RequestParam String name){
+        return walletAccountService.getIdByName(name);
     }
 }

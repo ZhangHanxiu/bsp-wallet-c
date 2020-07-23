@@ -22,4 +22,8 @@
         select available_money from waf where buyer_id = #{buyer_id}
     </select>
 
+    <select id="getIdByName" parameterType="Integer" resultType="Float">
+        select buyer_id from was where account_name = #{name}
+    </select>
+
 </mapper>

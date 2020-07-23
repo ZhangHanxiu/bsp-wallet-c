@@ -1,7 +1,7 @@
 /**
  * @author: 张晗修
  * @version: v1.0
- * @description: 用于token的加密，目前还没用上
+ * @description: 用于token的加密和解密
  */
 
 package com.neusoft.wallet.common.util;

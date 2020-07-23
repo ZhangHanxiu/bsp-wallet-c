@@ -19,16 +19,13 @@ public class ShiroConfiguration {
         Map<String,String> filtetMap = new LinkedHashMap<>();
         filtetMap.put("/","anon");
 
-        filtetMap.put("/wallet/register","anon");
-        filtetMap.put("/wallet/login","anon");
+//        filtetMap.put("/wallet/register","anon");
+//        filtetMap.put("/wallet/login","anon");
         filtetMap.put("/transaction/**","anon");
-        filtetMap.put("/wallet/**","anon");
+//        filtetMap.put("/wallet/**","anon");
 
-//        filtetMap.put("/login/relogin","anon");
-//        filtetMap.put("/login/checkUser","anon");
-//        filtetMap.put("/login/getInfo","anon");
-//        filtetMap.put("/login/logout","anon");
-//        filtetMap.put("/register/**","anon");
+        filtetMap.put("/wallet/login","anon");
+        filtetMap.put("/wallet/register","anon");
 //
 //        //！！！测试完记得删掉
 //        filtetMap.put("/menurole/**","anon");

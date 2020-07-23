@@ -64,7 +64,9 @@ public class WalletAccountServiceImpl implements WalletAccountService {
 
     @Override
     public int withdraw(int buyer_id, float amount) {
-
+        if(fund(buyer_id)<amount){
+            return 0;
+        }
         return walletAccountMapper.updateFund(buyer_id,(-1)*amount);
     }
 
@@ -76,5 +78,10 @@ public class WalletAccountServiceImpl implements WalletAccountService {
     @Override
     public float fund(int buyer_id) {
         return walletAccountMapper.fund(buyer_id);
+    }
+
+    @Override
+    public int getIdByName(String name) {
+        return walletAccountMapper.getIdByName(name);
     }
 }
